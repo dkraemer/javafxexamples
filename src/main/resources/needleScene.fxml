@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.*?>
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" fx:id="anchorPane" onMouseMoved="#onMouseMoved_anchorPane"
+            prefHeight="512.0" prefWidth="512.0" xmlns="http://javafx.com/javafx/8"
+            fx:controller="org.dkross.javafx.examples.needle.NeedleSceneController">
+    <ImageView fx:id="imageView" fitHeight="256.0" fitWidth="256.0" layoutX="128.0" layoutY="128.0"
+               pickOnBounds="true" preserveRatio="true" rotate="45.0">
+        <Image url="@pencil5-ps.png"/>
+    </ImageView>
+    <Label fx:id="labelMousePosition" alignment="CENTER_RIGHT" layoutX="401.0" layoutY="481.0"
+           text="Mouse X:000 Y:000" textAlignment="RIGHT" AnchorPane.bottomAnchor="14.0"
+           AnchorPane.rightAnchor="10.0"/>
+    <Line fx:id="lineOppositeLeg" endX="150.0" endY="-150.0" layoutX="256.0" layoutY="256.0" startY="-150.0"
+          stroke="BLUE"/>
+    <Line fx:id="lineAdjacentLeg" endY="-150.0" layoutX="256.0" layoutY="256.0" stroke="LIME"/>
+    <Line fx:id="lineHypotenuse" endX="150.0" endY="-150.0" layoutX="256.0" layoutY="256.0" stroke="RED"/>
+    <Circle fx:id="circleAlpha" centerX="256.0" centerY="256.0" fill="LIME" radius="5.0" stroke="BLACK"
+            strokeType="INSIDE" strokeWidth="0.0"/>
+    <Circle fx:id="circleBeta" centerX="406.0" centerY="106.0" fill="RED" radius="5.0" stroke="BLACK"
+            strokeType="INSIDE" strokeWidth="0.0"/>
+    <Circle fx:id="circleGamma" centerX="256.0" centerY="106.0" fill="BLUE" radius="5.0" stroke="BLACK"
+            strokeType="INSIDE" strokeWidth="0.0"/>
+    <CheckBox fx:id="checkBoxShowTriangle" layoutX="14.0" layoutY="481.0" mnemonicParsing="false"
+              onMouseClicked="#onMouseClicked_checkBoxShowTriangle" text="Show triangle"/>
+</AnchorPane>
