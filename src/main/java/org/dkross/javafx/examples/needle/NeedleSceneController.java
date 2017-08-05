@@ -8,11 +8,8 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Line;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
 public final class NeedleSceneController {
-    private static final Logger logger = LogManager.getLogger();
 
     private boolean isCheckBoxShowTriangleFirstClick;
 
@@ -42,10 +39,8 @@ public final class NeedleSceneController {
 
     @FXML
     private void initialize() {
-        logger.traceEntry();
         isCheckBoxShowTriangleFirstClick = true;
         setTriangleVisible(false);
-        logger.traceExit();
     }
 
     @FXML
@@ -105,7 +100,6 @@ public final class NeedleSceneController {
 
     @FXML
     private void onMouseClicked_checkBoxShowTriangle(MouseEvent mouseEvent) {
-        logger.traceEntry();
         setTriangleVisible(checkBoxShowTriangle.isSelected());
 
         if (isCheckBoxShowTriangleFirstClick) {
@@ -119,18 +113,14 @@ public final class NeedleSceneController {
             lineHypotenuse.setLayoutY(0);
 
             if (mouseEventSaved != null) {
-                logger.debug("Using mouseEventSaved");
                 onMouseMoved_anchorPane(mouseEventSaved);
             } else {
-                logger.error("Using mouseEvent. This should NOT happen!");
                 onMouseMoved_anchorPane(mouseEvent);
             }
         }
-        logger.traceExit();
     }
 
     private void setTriangleVisible(boolean triangleVisible) {
-        logger.traceEntry("(triangleVisible = {})", triangleVisible);
         labelMousePosition.setVisible(triangleVisible);
         circleAlpha.setVisible(triangleVisible);
         circleBeta.setVisible(triangleVisible);
@@ -138,6 +128,5 @@ public final class NeedleSceneController {
         lineOppositeLeg.setVisible(triangleVisible);
         lineAdjacentLeg.setVisible(triangleVisible);
         lineHypotenuse.setVisible(triangleVisible);
-        logger.traceExit();
     }
 }
